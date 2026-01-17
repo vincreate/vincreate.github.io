@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактор клітинок</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ЛІВА ПАНЕЛЬ ІНСТРУМЕНТІВ -->
+<div id="tools">
+  <div class="tool active" data-tool="pan" title="Рука">✋</div>
+  <div class="tool" data-tool="black" title="Чорний">⬛</div>
+  <div class="tool" data-tool="red" title="Червоний">🟥</div>
+  <div class="tool" data-tool="white" title="Білий">⬜</div>
+
+  <div class="tool" data-tool="bg" title="Рух фону">🖼️</div>
+</div>
+
+<!-- CANVAS -->
+<div id="canvas-container">
+  <canvas id="gridCanvas"></canvas>
+</div>
+
+<!-- ПРАВА ПАНЕЛЬ -->
+<div id="settings">
+  <h2>Налаштування</h2>
+
+  <div class="settings-content">
+
+    <h3>Фонове зображення</h3>
+
+    <div class="setting-group">
+      <input type="file" id="bgImageInput" accept="image/*">
+    </div>
+
+    <div class="setting-group checkbox-group">
+      <label>
+        <input type="checkbox" id="bgEnabled" checked>
+        Показувати фон
+      </label>
+    </div>
+
+    <hr>
+
+    <div class="setting-group">
+      <label>Прозорість фону</label>
+      <input type="range" id="bgOpacity" min="0" max="1" step="0.05" value="0.4">
+    </div>
+
+    <div class="setting-group">
+      <label>Кількість клітинок по X</label>
+      <input type="number" id="gridX" value="30" min="1">
+    </div>
+
+    <div class="setting-group">
+      <label>Кількість клітинок по Y</label>
+      <input type="number" id="gridY" value="30" min="1">
+    </div>
+
+
+
+    <div class="setting-group">
+      <button id="applySettings">Застосувати</button>
+    </div>
+
+    <hr>
+
+    <h3>Рівень</h3>
+
+    <div class="setting-group">
+      <button id="copyLevel">Скопіювати рівень</button>
+    </div>
+
+    <div class="setting-group">
+      <label>Вставити код рівня</label>
+      <textarea id="levelInput" rows="8" placeholder="00120
+01000
+00210"></textarea>
+    </div>
+
+    <div class="setting-group">
+      <button id="loadLevel">Намалювати з коду</button>
+    </div>
+
+  </div>
+</div>
+
+<button id="testLevelBtn" class="test-level-btn">
+  Тестувати рівень
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
